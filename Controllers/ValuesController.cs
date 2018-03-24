@@ -70,11 +70,17 @@ namespace Service.Controllers
         [HttpPost]
         public string  Register(Member Member)
         {
-            Console.WriteLine(Member.Mem_em_id);
+            Console.WriteLine(Member.Mem_tel);
             Mysql mysqlGet = new Mysql();
             return mysqlGet.Register(Member.Mem_em_id,Member.Mem_firstname,Member.Mem_lastname,Member.Mem_id_card,Member.Mem_tel,Member.Mem_address,Member.Mem_images);
         }
-
+        [Route("api/ShowInfo/{EmId}")]
+        [HttpGet]
+        public IEnumerable<Member>  ShowInfo(string EmId){
+           
+             Mysql mysqlGet = new Mysql();
+             return mysqlGet.ShowInfoList(EmId);
+        }
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)

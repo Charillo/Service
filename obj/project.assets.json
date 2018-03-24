@@ -12939,11 +12939,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/phrompongkhagtes/Desktop/OpenFaceV1.1/Service/Service.csproj",
+      "projectUniqueName": "/Users/phrompongkhagtes/Desktop/OpenFace/Service/Service.csproj",
       "projectName": "Service",
-      "projectPath": "/Users/phrompongkhagtes/Desktop/OpenFaceV1.1/Service/Service.csproj",
+      "projectPath": "/Users/phrompongkhagtes/Desktop/OpenFace/Service/Service.csproj",
       "packagesPath": "/Users/phrompongkhagtes/.nuget/packages/",
-      "outputPath": "/Users/phrompongkhagtes/Desktop/OpenFaceV1.1/Service/obj/",
+      "outputPath": "/Users/phrompongkhagtes/Desktop/OpenFace/Service/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

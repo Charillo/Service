@@ -94,6 +94,52 @@ namespace Service.Connector
             }
              return allHistory;
         }
+        public List<Member> ShowInfoList(string id){
+             List<Member> allUser = new List<Member>();
+            
+
+            using (MySqlConnection connMysql = new MySqlConnection(connstring))
+            {
+
+                using (MySqlCommand cmdd = connMysql.CreateCommand())
+                {
+
+                    cmdd.Parameters.AddWithValue("@id", id);
+                    cmdd.CommandText = "Select * from Member where  Mem_em_id  = @id";
+                    cmdd.CommandType = System.Data.CommandType.Text;
+
+                    cmdd.Connection = connMysql;
+
+                    connMysql.Open();
+
+                    using (MySqlDataReader reader = cmdd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            allUser.Add(new Member()
+                            {
+                                Mem_id = reader.GetInt32(reader.GetOrdinal("Mem_id")) ,
+                                Mem_em_id = reader.GetString(reader.GetOrdinal("Mem_em_id")),
+                                Mem_firstname = reader.GetString(reader.GetOrdinal("Mem_firstname")),
+                                Mem_lastname = reader.GetString(reader.GetOrdinal("Mem_lastname")),
+                                Mem_id_card = reader.GetString(reader.GetOrdinal("Mem_id_card")),
+                                Mem_tel = reader.GetString(reader.GetOrdinal("Mem_tel")),
+                                Mem_address = reader.GetString(reader.GetOrdinal("Mem_address")),
+                                Mem_images = reader.GetString(reader.GetOrdinal("Mem_images"))
+                                // Em_images = reader.GetString(reader.GetOrdinal("Em_images"))
+                            });
+                        }
+                    }
+                }
+
+                connMysql.Close();
+            }
+
+
+
+            return allUser;
+        }
         public string Register(string id,string firstname,string lastname,string card,string tel,string address,string img){
             MySqlConnection conn = new MySqlConnection(connstring);
             MySqlCommand cmd = new MySqlCommand();
